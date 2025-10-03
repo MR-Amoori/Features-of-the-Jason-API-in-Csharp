@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using Newtonsoft;
 using Json_Api.Web_APIs;
 using System.IO;
 
@@ -17,21 +11,64 @@ namespace Json_Api
 {
     public partial class Form1 : Form
     {
-
         public Form1()
         {
             InitializeComponent();
         }
 
+        private async void LoadImageFromUrl(string imageUrl)
+        {
+            pbClock.Enabled = true;
+            pbClock.Visible = true;
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    //   client.Timeout = TimeSpan.FromSeconds(30); // افزایش زمان انتظار
+                    // دریافت تصویر به صورت بایت‌آرایه
+                    byte[] imageData = await client.GetByteArrayAsync(imageUrl);
+
+                    // تبدیل بایت‌آرایه به تصویر و نمایش آن
+                    using (MemoryStream stream = new MemoryStream(imageData))
+                    {
+                        // آزاد کردن تصویر قبلی اگر وجود دارد
+                        if (pbClock.Image != null)
+                        {
+                            pbClock.Image.Dispose();
+                        }
+
+                        Image image = Image.FromStream(stream);
+                        pbClock.Image = image;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"خطا در بارگذاری تصویر: {ex.Message}");
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (pbClock.Enabled)
+            {
+                LoadImageFromUrl("https://api.codebazan.ir/clock/image.php");
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             lisArz.Clear();
+            pbClock.Visible = false;
+            pbClock.Enabled = false;
         }
 
         #region Arz
         private void btnArz_Click(object sender, EventArgs e)
         {
             lisArz.Clear();
+            pbClock.Visible = false;
+            pbClock.Enabled = false;
             string urlApi = "https://api.codebazan.ir/arz/?type=arz";
             using (var client = new HttpClient())
             {
@@ -101,6 +138,10 @@ namespace Json_Api
                             lisArz.Items.Add("اذان مغرب: " + pl.azanmaghreb);
                             lisArz.Items.Add("نیمه شب شرعی: " + pl.nimeshab);
                         }
+
+                        pbClock.Visible = true;
+                        pbClock.Enabled = true;
+                        LoadImageFromUrl("https://api.codebazan.ir/clock/image.php");
                     }
                     else
                     {
@@ -114,5 +155,6 @@ namespace Json_Api
             }
         }
         #endregion
+
     }
 }

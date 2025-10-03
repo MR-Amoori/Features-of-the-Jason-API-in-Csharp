@@ -36,6 +36,8 @@
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pbClock = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClock)).BeginInit();
             this.SuspendLayout();
             // 
             // btnArz
@@ -64,6 +66,7 @@
             this.txtOghat.Name = "txtOghat";
             this.txtOghat.Size = new System.Drawing.Size(155, 20);
             this.txtOghat.TabIndex = 2;
+            this.txtOghat.Text = "خرمشهر";
             this.txtOghat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lisArz
@@ -86,13 +89,26 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pbClock
+            // 
+            this.pbClock.Location = new System.Drawing.Point(2, 72);
+            this.pbClock.Name = "pbClock";
+            this.pbClock.Padding = new System.Windows.Forms.Padding(5);
+            this.pbClock.Size = new System.Drawing.Size(139, 145);
+            this.pbClock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbClock.TabIndex = 4;
+            this.pbClock.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(286, 386);
+            this.Controls.Add(this.pbClock);
             this.Controls.Add(this.lisArz);
             this.Controls.Add(this.txtOghat);
             this.Controls.Add(this.btnOghatSharee);
@@ -103,6 +119,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "نمایش وب ای پی آی";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbClock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,6 +134,7 @@
         private System.Windows.Forms.ColumnHeader name;
         private System.Windows.Forms.ColumnHeader price;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pbClock;
     }
 }
 
