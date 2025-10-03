@@ -1,0 +1,13 @@
+c:\users\moham\source\repos\Json Api\Json Api\bin\Debug\Json Api.exe.config
+c:\users\moham\source\repos\Json Api\Json Api\bin\Debug\Json Api.exe
+c:\users\moham\source\repos\Json Api\Json Api\bin\Debug\Json Api.pdb
+c:\users\moham\source\repos\Json Api\Json Api\obj\Debug\Json Api.csprojAssemblyReference.cache
+c:\users\moham\source\repos\Json Api\Json Api\obj\Debug\Json_Api.Form1.resources
+c:\users\moham\source\repos\Json Api\Json Api\obj\Debug\Json_Api.Properties.Resources.resources
+c:\users\moham\source\repos\Json Api\Json Api\obj\Debug\Json Api.csproj.GenerateResource.cache
+c:\users\moham\source\repos\Json Api\Json Api\obj\Debug\Json Api.csproj.CoreCompileInputs.cache
+c:\users\moham\source\repos\Json Api\Json Api\obj\Debug\Json Api.exe
+c:\users\moham\source\repos\Json Api\Json Api\obj\Debug\Json Api.pdb
+c:\users\moham\source\repos\Json Api\Json Api\bin\Debug\Newtonsoft.Json.dll
+c:\users\moham\source\repos\Json Api\Json Api\bin\Debug\Newtonsoft.Json.xml
+c:\users\moham\source\repos\Json Api\Json Api\obj\Debug\Json Api.csproj.CopyComplete
