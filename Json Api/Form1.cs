@@ -24,7 +24,7 @@ namespace Json_Api
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    //   client.Timeout = TimeSpan.FromSeconds(30); // افزایش زمان انتظار
+                    // client.Timeout = TimeSpan.FromSeconds(30); // افزایش زمان انتظار
                     // دریافت تصویر به صورت بایت‌آرایه
                     byte[] imageData = await client.GetByteArrayAsync(imageUrl);
 
